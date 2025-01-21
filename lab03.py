@@ -12,24 +12,24 @@ for weapon in weapons:
     print(weapon)
 
 # Inputs
-# combatStrength = max(1, min(6, int(input("Hero strength (1-6): "))))
-# mCombatStrength = max(1, min(6, int(input("Monster strength (1-6): "))))
 
+# Input hero strength
 combatStrength = -1
 while combatStrength == -1:
-    try:
+    try: # try getting value from user
         usrInput = int(input("Choose hero strength (1-6): "))
-        if usrInput in diceOptions:
+        if usrInput in diceOptions: # if valid, accept
             combatStrength = usrInput
-        else:
+        else: # otherwise reject
             raise IndexError
-    except IndexError:
+    except IndexError: # User provided a number not in range
         print("Please enter a number between 1-6")
         continue
-    except ValueError:
+    except ValueError: # User did not provide a number
         print("Please enter a number.")
         continue
 
+#Input monster strength, same process as hero
 mCombatStrength = -1
 while mCombatStrength == -1:
     try:
@@ -46,7 +46,7 @@ while mCombatStrength == -1:
         continue
 
 
-# Battle
+# Simulating battle
 for j in range(1, 21, 2):
     heroRoll, monsterRoll = random.choice(diceOptions), random.choice(diceOptions)
     heroTotal, monsterTotal = combatStrength + heroRoll, mCombatStrength + monsterRoll
