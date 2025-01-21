@@ -48,10 +48,17 @@ while mCombatStrength == -1:
 
 # Simulating battle
 for j in range(1, 21, 2):
+    # Dice rolls for hero and monster
     heroRoll, monsterRoll = random.choice(diceOptions), random.choice(diceOptions)
+    # Calculate total strength based on previously selected strength
     heroTotal, monsterTotal = combatStrength + heroRoll, mCombatStrength + monsterRoll
+    # Display round details: Hero(rolled weapon) = total, Monster...
     print(f"Round {j}: Hero({weapons[heroRoll - 1]})={heroTotal}, Monster({weapons[monsterRoll - 1]})={monsterTotal}.",
+          # Using ternary operator to print battle result
           "Hero wins!" if heroTotal > monsterTotal else "Monster wins!" if heroTotal < monsterTotal else "Tie!")
+
+    #Parties are tired, go to sleep ...zzz...
     if j == 11:
         print("Battle Truce declared. Game Over!")
         break
+
