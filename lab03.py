@@ -1,10 +1,12 @@
 import random
 from math import trunc
 
-# Setup
+# Dice options using list() and range()
 diceOptions = list(range(1, 7))
+
+# Weapons array
 weapons = ['Fist', 'Knife', 'Club', 'Gun', 'Bomb', 'Nuclear Bomb']
-# print("Available Weapons:", ', '.join(weapons))
+
 print('Available weapons:')
 for weapon in weapons:
     print(weapon)
